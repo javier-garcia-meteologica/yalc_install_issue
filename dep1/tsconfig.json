@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "esnext",
+    "lib": ["ES2018"],
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "strictBindCallApply": true,
+    "resolveJsonModule": true,
+    "noUncheckedIndexedAccess": true,
+    "baseUrl": ".",
+    "rootDir": "./src"
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ]
+}
