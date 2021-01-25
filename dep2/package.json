@@ -26,7 +26,7 @@
     "typescript": "4.1.2"
   },
   "dependencies": {
-    "chalk2": "file:../chalk/chalk2-4.1.0.tgz",
+    "chalk": "file:/tmp/chalk-4.1.0.tgz",
     "tslib": "2.0.3"
   }
 }

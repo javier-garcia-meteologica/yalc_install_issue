@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@apollo/client": "3.2.4",
-    "@deps/dep2": "../dep2/deps-dep2-0.0.1.tgz",
-    "@deps/dep1": "../dep1/deps-dep1-0.0.1.tgz"
+    "@deps/dep2": "file:/tmp/deps-dep2-0.0.1.tgz",
+    "@deps/dep1": "file:/tmp/deps-dep1-0.0.1.tgz"
   }
 }

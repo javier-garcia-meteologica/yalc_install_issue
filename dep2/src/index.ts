@@ -1,4 +1,4 @@
-import chalk from 'chalk2';
+import { red } from 'chalk';
 
 export function configurable(value: boolean) {
   return function (
@@ -23,7 +23,7 @@ class Greeter {
   }
 
   greet (): void {
-    console.log(chalk.blue(this.greeting));
+    console.log(red(this.greeting));
   }
 }
 

@@ -2,70 +2,43 @@ This repository reproduces a bug in yalc.
 
 https://github.com/wclr/yalc/issues/154
 
-# 1. Replace relative with absolute paths
+# 1. Build dependencies and publish to yalc
 
-Let's assume that you have cloned this repo in `/home/user/yalc_install_issue`
+### Automatic
 
-Then go to `dep2/package.json` and change this
-
-```
-  "dependencies": {
-    "chalk2": "file:../chalk/chalk2-4.1.0.tgz",
+```bash
+bash prepare.sh
 ```
 
-To this
+### Manually
 
-```
-  "dependencies": {
-    "chalk2": "file:/home/user/yalc_install_issue/chalk/chalk2-4.1.0.tgz",
-```
-
-In `dep1/package.json` replace this
-
-```
-  "dependencies": {
-    "@deps/dep2": "file:../dep2/deps-dep2-0.0.1.tgz",
-```
-
-With this
-
-
-```
-  "dependencies": {
-    "@deps/dep2": "file:/home/user/yalc_install_issue/dep2/deps-dep2-0.0.1.tgz",
-```
-
-This is necessary to simulate packages coming from the registry
-
-# 2. Build and publish to yalc
-
-Build "chalk"
+Build "chalk" and publish to both `/tmp` and yalc
 
 ```bash
 cd chalk
-rm *.tgz # Remove old package
 npm i
 npm pack
+mv chalk-4.1.0.tgz /tmp
 yalc publish
 ```
 
-Build "dep2"
+Build "dep2" and publish to both `/tmp` and yalc
 
 ```bash
 cd dep2
-rm *.tgz # Remove old package
 npm i
 npm pack
+mv deps-dep2-0.0.1.tgz /tmp
 yalc publish
 ```
 
-Build "dep1"
+Build "dep1" and publish to both `/tmp` and yalc
 
 ```bash
 cd dep1
-rm *.tgz  # Remove old package
 npm i
 npm pack
+mv deps-dep1-0.0.1.tgz /tmp
 yalc publish
 ```
 
@@ -77,9 +50,9 @@ rm -r .yalc yalc.lock node_modules package-lock.json # Clean environment
 npm i
 ```
 
-It should install all packages successfully, the same as if the packages come from the registry.
+It should install all packages successfully, the same as if the packages came from the registry.
 
-# 3. Inject yalc dependencies
+# 2. Inject yalc dependencies
 
 Now let's inject yalc dependencies
 
